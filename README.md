@@ -1,24 +1,13 @@
+#단국대 버스 프로젝트 개발노트
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+---------------------------------
 
 
-Welcome to your Rails project on Cloud9 IDE!
+2018-11-15
+- Front
+    1. 대략적인 레이아웃 완성
+    2. 뒤 배경 그림 제작중
+    3. PC환경 레이아웃은 완성
 
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+- Back
+    1. 24, 720-3번 버스 치과병원 정류장 정보 받아오기 성공. (현재 index)
