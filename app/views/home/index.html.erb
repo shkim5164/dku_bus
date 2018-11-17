@@ -1,3 +1,21 @@
-<h1>단국대 치과병원</h1>
-<p>24번 버스는 <%= @bus24 %> 분 뒤 도착예정</p>
-<p>720-3번 버스는 <%= @bus720_3 %> 분 뒤 도착예정</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            function printBus(){
+                $.ajax({
+                    url : "/home/bus",
+                    success : function(result) {
+                        console.log(1);
+                        $('body').load('/home/bus #bustime');
+                    }
+                });
+                setTimeout("printClock()",10000); // 1000=1초
+            }
+        </script>
+    </head>
+    <body onload="printBus()">
+        
+    </body>
+</html>
