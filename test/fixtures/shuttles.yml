@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gomsang: 2018-11-22 09:39:26
+  inmun: 2018-11-22 09:39:26
+  jungmun: 2018-11-22 09:39:26
+  jukjeon: 2018-11-22 09:39:26
+  dental: 2018-11-22 09:39:26
+
+two:
+  gomsang: 2018-11-22 09:39:26
+  inmun: 2018-11-22 09:39:26
+  jungmun: 2018-11-22 09:39:26
+  jukjeon: 2018-11-22 09:39:26
+  dental: 2018-11-22 09:39:26
