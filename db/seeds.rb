@@ -11,6 +11,9 @@ for h in (8..22)
     if(h<=10)
         Shuttle.create(gomsang: t) #8시~10시: 상시출발
     else
+        if(h==11)
+            Shuttle.create(jukjeon: t, dental: t+480)
+        end
         Shuttle.create(gomsang: t, inmun: t+60, jungmun: t+120, jukjeon: t+600, dental: t+1080) # 정각 출발
         
         if(h==16)
