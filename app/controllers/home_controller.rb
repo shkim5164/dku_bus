@@ -30,23 +30,38 @@ class HomeController < ApplicationController
     @inmun_720_3 = get_info3[1]["predictTime1"]
     
     #셔틀버스
-    now=Time.now.min
+    now=Time.now
     ifend1 = true
     ifend2 = true
     ifend3 = true
     @@shuttles.each do |s|
-      if(s.dental!=nil && now<s.dental.min && ifend1) #치대
-        @dental_shuttle = s.dental.min-now
+      #치대
+      if(s.dental!=nil && now.hour+9==s.dental.hour && now.min<s.dental.min && ifend1)
+        @dental_shuttle = s.dental.min-now.min
+        ifend1 = false
+      elsif(s.dental!=nil && now.hour+10==s.dental.hour && ifend1)
+        @dental_shuttle = 60-now.min+s.dental.min
         ifend1 = false
       end
-      if(s.gomsang!=nil && now<s.gomsang.min && ifend2) #곰상
-        @gomsang_shuttle = s.gomsang.min-now
+      
+      #곰상
+      if(s.gomsang!=nil && now.hour+9==s.gomsang.hour && now.min<s.gomsang.min && ifend2)
+        @gomsang_shuttle = s.gomsang.min-now.min
+        ifend2 = false
+      elsif(s.gomsang!=nil && now.hour+10==s.gomsang.hour && ifend2)
+        @gomsang_shuttle = 60-now.min+s.gomsang.min
         ifend2 = false
       end
-      if(s.inmun!=nil && now<s.inmun.min && ifend3) #인문
-        @inmun_shuttle = s.inmun.min-now
+      
+      #인문
+      if(s.inmun!=nil && now.hour+9==s.inmun.hour && now.min<s.inmun.min && ifend3)
+        @inmun_shuttle = s.inmun.min-now.min
+        ifend3 = false
+      elsif(s.inmun!=nil && now.hour+10==s.inmun.hour && ifend3)
+        @inmun_shuttle = 60-now.min+s.inmun.min
         ifend3 = false
       end
+      
     end
     
   end
