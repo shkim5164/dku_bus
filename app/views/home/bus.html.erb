@@ -1,11 +1,23 @@
 <div id="bustime">
-    <p class="dental 24">치대24: <%= @dental_24 %></p>
-    <p class="dental 720-3">치대720_3: <%= @dental_720_3 %></p>
-    <p class="dental shuttle">치대셔틀: <%= @dental_shuttle %></p>
-    <p class="gomsang 24">곰상24: <%= @gomsang_24 %></p>
-    <p class="gomsang 720-3">곰상720_3: <%= @gomsang_720_3 %></p>
-    <p class="gomsang shuttle">곰상셔틀: <%= @gomsang_shuttle %></p>
-    <p class="inmun 24">인문24: <%= @inmun_24 %></p>
-    <p class="inmun 720-3">인문720-3: <%= @inmun_720_3 %></p>
-    <p class="inmun shuttle">인문셔틀: <%= @inmun_shuttle %></p>
+    <div class="collapse" id="chidae">
+        <div class="card card-body">
+            <p class="dental 24">치대24: <%= @dental_24 %></p>
+            <p class="dental 720-3">치대720_3: <%= @dental_720_3 %></p>
+            <p class="dental shuttle">치대셔틀: <%= @dental_shuttle %></p>
+        </div>
+    </div>
+    <div class="collapse" id="gomsang">
+        <div class="card card-body">
+            <p class="gomsang 24">곰상24: <%= @gomsang_24 %></p>
+            <p class="gomsang 720-3">곰상720_3: <%= @gomsang_720_3 %></p>
+            <p class="gomsang shuttle">곰상셔틀: <%= @gomsang_shuttle %></p>
+        </div>
+    </div>
+    <div class="collapse" id="inmun">
+        <div class="card card-body">
+          <p class="inmun 24">인문24: <%= @inmun_24 %></p>
+          <p class="inmun 720-3">인문720-3: <%= @inmun_720_3 %></p>
+          <p class="inmun shuttle">인문셔틀: <%= @inmun_shuttle %></p>
+        </div>
+    </div>
 </div>

@@ -2,18 +2,63 @@
 <html>
     <head>
         <script>
-            function printBus(){
-                $.ajax({
-                    url : "/home/bus",
-                    success : function(result) {
-                        console.log(1);
-                        $('body').load('/home/bus #bustime');
-                    }
-                });
-                setTimeout("printBus()",10000); // 1000=1초
+            // function printBus(){
+            //     $.ajax({
+
+            //         url : "/home/bus",
+            //         dataType: 'html',
+            //         success : function(result) {
+            //             console.log(1);
+            //             $("#time").html(result);
+            //         }
+            //     });
+            //     setTimeout("printBus()",10000); // 1000=1초
+            // }
+            var all;
+            function printBus(){ 
+                    $.ajax({ 
+                        type: 'get',
+                        async: false,
+                        url: '/home/bus', 
+                        dataType : 'html',
+                        success: function(data){
+                            all = data;
+                            console.log('가져옴');
+                        }
+                        });
+                    setTimeout('printBus()', 10000);
+                }
+            function first(){
+                $.ajax({ 
+                        type: 'get',
+                        async: false,
+                        url: '/home/bus', 
+                        dataType : 'html',
+                        success: function(data){
+                            all = data;
+                            console.log('가져옴');
+                            var e = $(data).find('#chidae');	
+                            $("#listDiv").html(e);
+                        }
+                        });
+                    printBus();
+            }
+            function choosePlace(place){
+                    var e = $(all).find(place);	
+                    $("#listDiv").html(e);
             }
         </script>
     </head>
-    <body onload="printBus()">
+    <body onload="first()">
+        <div id="listDiv"></div>
+        <button class="btn btn-primary" onclick="choosePlace('#chidae')" type="button">
+            치대
+        </button>
+        <button class="btn btn-primary" onclick="choosePlace('#gomsang')"type="button">
+            곰상
+        </button>
+        <button class="btn btn-primary" onclick="choosePlace('#inmun')"type="button">
+            인문관
+        </button>
     </body>
 </html>
