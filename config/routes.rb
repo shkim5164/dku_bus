@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   get 'home/bus'
+  get 'home/shuttle'
   #post 'home/bus' token fail
 
   # The priority is based upon order of creation: first created -> highest priority.

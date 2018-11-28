@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body class="mx-auto" style="width:600px">
+    <p class="mt-3">※ 아래 시간표는 <b>곰상 출발시간을 기준</b>으로 예측한 시간표이므로, <u>곰상 외 도착예정 시간은 교통상황에 따라 다를 수 있습니다.</u> (↓교통상황이 원활할 경우)</p>
+    <table class="table table-bordered" style="font-size: 0.9rem; text-align: center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">시간</th>
+          <th scope="col">곰상</th>
+          <th scope="col">인문대</th>
+          <th scope="col">정문</th>
+          <th scope="col">죽전역</th>
+          <th scope="col">치대</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shuttle.each do |s| %>
+          <% if(s.id<=3 ) %>
+            <tr>
+              <th scope="row"><%= s.gomsang.hour %></th>
+              <td colspan="5">수시운행</td>
+            </tr>
+          <% else %>
+            <tr>
+              <% if(s.id==4) %>
+                <th scope="row">11</th>
+                <td colspan="3"></td>
+              <% else %>
+                <th scope="row"><%= s.gomsang.hour %></th>
+                <td><%= s.gomsang.strftime("%H:%M") %></td>
+                <td><%= s.inmun.strftime("%H:%M") %></td>
+                <td><%= s.jungmun.strftime("%H:%M") %></td>
+              <% end %>
+              <td><%= s.jukjeon.strftime("%H:%M") %></td>
+              <% if(s.dental != nil) %>
+                <td><%= s.dental.strftime("%H:%M") %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

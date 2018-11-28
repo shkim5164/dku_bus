@@ -31,6 +31,12 @@ class HomeController < ApplicationController
     
     #셔틀버스
     now=Time.now
+    if(now.hour+9 >= 8 && now.hour+9<=10)
+      @dental_shuttle = "상시운행"
+      @gomsang_shuttle = "상시운행"
+      @inmun_shuttle = "상시운행"
+    end
+    
     ifend1 = true
     ifend2 = true
     ifend3 = true
@@ -64,5 +70,11 @@ class HomeController < ApplicationController
       
     end
     
+    
   end
+  
+  def shuttle
+    @shuttle = @@shuttles
+  end
+  
 end
