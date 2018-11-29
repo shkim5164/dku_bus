@@ -1,0 +1,240 @@
+/*!
+ * Start Bootstrap - Stylish Portfolio v5.0.1 (https://startbootstrap.com/template-overviews/stylish-portfolio)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/blob/master/LICENSE)
+ */
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+body {
+  font-family: 'Source Sans Pro';
+}
+
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+}
+
+/* 버스정보 */
+.content-section {
+  display:inline-block;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  width: 30%;
+}
+
+.content-section-heading h2 {
+  font-size: 3rem;
+}
+
+.content-section-heading h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Map */
+.masthead {
+  min-height: 25rem;
+  position: relative;
+  display: block;
+  width: 70%;
+  height: auto;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url("/img/DKUcampus_center.png");
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/img/DKUcampus_center.png");
+  background-color: #95b763;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+
+
+/* 버스아이콘 */
+.service-icon {
+  background-color: #fff;
+  height: 6rem;
+  width: 6rem;
+  display: block;
+  line-height: 6rem;
+  font-size: 3rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.bus24 {
+    color: #ffd200;
+}
+.bus720 {
+    color: #27a700;
+}
+.busShuttle {
+    color: #004999;
+}
+.mobile-bus {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* 풋터 */
+/* footer.footer {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+footer.footer .social-link {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4.3rem;
+  font-size: 1.5rem;
+  background-color: #1D809F;
+  -webkit-transition: background-color 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+footer.footer .social-link:hover {
+  background-color: #155d74;
+  text-decoration: none;
+} */
+
+/* 버튼 */
+a {
+  color: #1D809F;
+}
+
+a:hover, a:focus, a:active {
+  color: #155d74;
+}
+
+.btn-primary {
+  background-color: #004999 !important;
+  border-color: #004999 !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #0068d9 !important;
+  border-color: #0068d9 !important;
+}
+
+.btn-secondary {
+  background-color: #ecb807 !important;
+  border-color: #ecb807 !important;
+  color: #fff !important;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+  background-color: #ba9106 !important;
+  border-color: #ba9106 !important;
+}
+
+.btn-dark {
+  color: #fff !important;
+}
+
+.btn {
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.bg-primary {
+  background-color: #004999 !important;
+}
+
+.text-primary {
+  color: #1D809F !important;
+}
+
+.text-secondary {
+  color: #ecb807 !important;
+}
+
+/* try */
+.gomsang {
+  position: relative;
+  top: 70px;
+  left: 170px;
+  z-index: 2;
+}
+
+.inmun {
+  position: relative;
+  top: 300px;
+  left: 90px;
+  z-index: 2;
+}
+
+.main_gate {
+  position: relative;
+  top: 400px;
+  left: 340px;
+  z-index: 2;
+}
+
+.chidae {
+  position: relative;
+  top: 300px;
+  left: 340px;
+  z-index: 2;
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .masthead {
+    height: 100vh;
+  }
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 1200px) {
+  body {
+    display: block;
+  }
+  .masthead {
+    /* width: 100%;
+    height: 100%; */
+    width: 100%;
+    height: 20%;
+  }
+  .content-section {
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .service-icon {
+    height: 5rem;
+    width: 5rem;
+    font-size: 2.5rem;
+    line-height: 5rem;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+
+}
+body {top-margin:0; bottom-margin:0; left-margin:0; right-margin:0}

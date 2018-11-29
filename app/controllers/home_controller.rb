@@ -20,14 +20,14 @@ class HomeController < ApplicationController
     str_uri2 = uri2.read
     get_info2 = JSON.parse(str_uri2)["busStationArrivalInfo"]["arrivalList"]
     @gomsang_24 = get_info2[2]["predictTime1"]
-    @gomsang_720_3 = get_info2[1]["predictTime1"]
+    @gomsang_720_3 = get_info2[0]["predictTime1"]
     
     #단국대 인문관 정류장
     uri3 = open(gbis + "?stationId=228001981")
     str_uri3 = uri3.read
     get_info3 = JSON.parse(str_uri3)["busStationArrivalInfo"]["arrivalList"]
     @inmun_24 = get_info3[2]["predictTime1"]
-    @inmun_720_3 = get_info3[1]["predictTime1"]
+    @inmun_720_3 = get_info3[0]["predictTime1"]
     
     #셔틀버스
     now=Time.now
