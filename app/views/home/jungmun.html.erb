@@ -1,0 +1,46 @@
+<div id="bustime">
+    <div id="jungmun">
+        <div class="content-section-heading">
+            <h3 class="text-secondary mb-0">버스정보</h3>
+            <h2 class="mb-5">정문</h2>
+        </div>
+        <div class=" mobile-bus">
+            <div class="col-lg-4 col-md-4 clo-sm-4 col-4">
+                <span class="service-icon rounded-circle mx-auto mb-3 bus24">
+                    <i class="fas fa-bus"></i>
+                </span>
+                <h5><strong>24번</strong></h5>
+                <h3 class="text-faded mb-0">
+                  <i class="far fa-clock"></i><%= @jungmun_24_1 %>분
+                  <i class="far fa-clock"></i><%= @jungmun_24_2 %>분
+                </h3>
+            </div>
+    
+            <div class="col-lg-4 col-md-4 clo-sm-4 col-4">
+                <span class="service-icon rounded-circle mx-auto mb-3 bus720">
+                    <i class="fas fa-bus"></i>
+                </span>
+                <h5>
+                  <strong>720-3번</strong>
+                </h5>
+                <h3 class="text-faded mb-0">
+                  <i class="far fa-clock"></i><%= @jungmun_720_3_1 %>분
+                  <i class="far fa-clock"></i><%= @jungmun_720_3_2 %>분
+                </h3>
+            </div>
+    
+            <div class="col-lg-4 col-md-4 clo-sm-4 col-4">
+              <span class="service-icon rounded-circle mx-auto mb-3 busShuttle">
+                <i class="fas fa-bus"></i>
+              </span>
+              <h5>
+                <strong>셔틀</strong>
+              </h5>
+              <h3 class="text-faded mb-0">
+                <i class="far fa-clock"></i><%= @jungmun_shuttle %>분
+                </h3>
+            </div>
+        </div>
+    </div>
+    
+</div>

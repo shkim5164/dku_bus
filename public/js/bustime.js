@@ -1,33 +1,21 @@
-var all;
-function printBus(){ 
+var timer;
+function printBus(place){
     $.ajax({ 
         type: 'get',
         async: false,
-        url: '/home/bus', 
+        url: '/home/'+place, 
         dataType : 'html',
         success: function(data){
-            all = data;
-            console.log('가져옴');
-        }
-        });
-    setTimeout('printBus()', 10000);
-}
-function first(){
-    $.ajax({ 
-        type: 'get',
-        async: false,
-        url: '/home/bus', 
-        dataType : 'html',
-        success: function(data){
-            all = data;
-            console.log('가져옴');
-            var e = $(data).find('#chidae');	
+            // all = data;
+            console.log(place+'가져옴');
+            var e = $(data).find('#'+place);
             $("#listDiv").html(e);
         }
     });
-    printBus();
+    timer = setTimeout("printBus('"+place+"')", 10000);
 }
+
 function choosePlace(place){
-    var e = $(all).find(place);	
-    $("#listDiv").html(e);
+    clearTimeout(timer);
+    printBus(place);
 }

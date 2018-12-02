@@ -24,20 +24,20 @@
     
         <script src="/js/bustime.js"></script>
     </head>
-    <body onload="first()">
+    <body onload="printBus('chidae')">
         <!-- 지도 -->
           <header class="masthead d-flex text-center">
             <div class="">
-              <button class="btn btn-primary" onclick="choosePlace('#chidae')" type="button">
+              <button class="btn btn-primary" onclick="choosePlace('chidae')" type="button">
                     치대
                 </button>
-                <button class="btn btn-primary" onclick="choosePlace('#gomsang')"type="button">
+                <button class="btn btn-primary" onclick="choosePlace('gomsang')"type="button">
                     곰상
                 </button>
-                <button class="btn btn-primary" onclick="choosePlace('#inmun')"type="button">
+                <button class="btn btn-primary" onclick="choosePlace('inmun')"type="button">
                     인문관
                 </button>
-                <button class="btn btn-primary" onclick="choosePlace('#jungmun')"type="button">
+                <button class="btn btn-primary" onclick="choosePlace('jungmun')"type="button">
                     정문
                 </button>
                 <a href="/home/shuttle"><button class="btn btn-primary" type="button">셔틀시간표</button></a>
@@ -45,8 +45,8 @@
             <!-- <div class="overlay"></div> -->
           </header>
         
-            <!-- 버스정보 -->
-            <section class="content-section bg-primary text-white text-center" id="listDiv">
+          <!-- 버스정보 -->
+          <section class="content-section bg-primary text-white text-center" id="listDiv"></section>
         
         <!-- Bootstrap core JavaScript -->
         <script src="/vendor/jquery/jquery.min.js"></script>

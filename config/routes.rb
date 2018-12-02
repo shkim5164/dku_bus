@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get 'home/bus'
+  get 'home/chidae'
+  get 'home/gomsang'
+  get 'home/inmun'
+  get 'home/jungmun'
   get 'home/shuttle'
   #post 'home/bus' token fail
 
