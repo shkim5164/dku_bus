@@ -22,7 +22,6 @@ body {
 .content-section {
   display:inline-block;
   padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
   width: 30%;
 }
 
@@ -169,33 +168,11 @@ a:hover, a:focus, a:active {
   color: #ecb807 !important;
 }
 
-/* try */
-.gomsang {
-  position: relative;
-  top: 70px;
-  left: 170px;
-  z-index: 2;
-}
-
-.inmun {
-  position: relative;
-  top: 300px;
-  left: 90px;
-  z-index: 2;
-}
-
-.main_gate {
-  position: relative;
-  top: 400px;
-  left: 340px;
-  z-index: 2;
-}
-
-.chidae {
-  position: relative;
-  top: 300px;
-  left: 340px;
-  z-index: 2;
+/* button */
+button.btn.btn-primary {
+    background: transparent !important;
+    /*border: none;*/
+    position: absolute;
 }
 
 /* PC */
@@ -205,6 +182,31 @@ a:hover, a:focus, a:active {
   }
   .masthead h1 {
     font-size: 5.5rem;
+  }
+  
+  button.btn.btn-primary.gom {
+    top: 17%;
+    left: 10%;
+    width: 18%;
+    height: 30%;
+  }
+  button.btn.btn-primary.chi {
+    top: 53%;
+    left: 70%;
+    width: 17%;
+    height: 27%;
+  }
+  button.btn.btn-primary.in {
+    top: 50%;
+    left: 11%;
+    width: 23%;
+    height: 35%;
+  }
+  button.btn.btn-primary.jung {
+    top: 70%;
+    left: 55%;
+    width: 15%;
+    height: 30%;
   }
 }
 
@@ -230,6 +232,32 @@ a:hover, a:focus, a:active {
     font-size: 2.5rem;
     line-height: 5rem;
   }
+  
+  button.btn.btn-primary.gom {
+    top: 23%;
+    left: 0%;
+    width: 23%;
+    height: 27%;
+  }
+  button.btn.btn-primary.chi {
+    top: 52%;
+    left: 74%;
+    width: 21%;
+    height: 20%;
+  }
+  button.btn.btn-primary.in {
+    top: 50%;
+    left: 0%;
+    width: 30%;
+    height: 26%;
+  }
+  button.btn.btn-primary.jung {
+    top: 63%;
+    left: 58%;
+    width: 16%;
+    height: 24%;
+  }
+  
 }
 
 body {
