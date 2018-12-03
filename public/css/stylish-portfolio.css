@@ -22,7 +22,7 @@ body {
 .content-section {
   display:inline-block;
   padding-top: 7.5rem;
-  width: 30%;
+  width: 33%;
 }
 
 .content-section-heading h2 {
@@ -52,7 +52,7 @@ h6 {
   min-height: 25rem;
   position: relative;
   display: block;
-  width: 70%;
+  width: 67%;
   height: auto;
   background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url("/img/DKUcampus_center.png");
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("/img/DKUcampus_center.png");
@@ -132,7 +132,8 @@ a:hover, a:focus, a:active {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background-color: #0068d9 !important;
-  border-color: #0068d9 !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .btn-secondary {
@@ -171,7 +172,8 @@ a:hover, a:focus, a:active {
 /* button */
 button.btn.btn-primary {
     background: transparent !important;
-    /*border: none;*/
+    border: none !important;
+    outline: none !important;
     position: absolute;
 }
 
@@ -186,25 +188,25 @@ button.btn.btn-primary {
   
   button.btn.btn-primary.gom {
     top: 17%;
-    left: 10%;
+    left: 8%;
     width: 18%;
     height: 30%;
   }
   button.btn.btn-primary.chi {
     top: 53%;
-    left: 70%;
+    left: 72%;
     width: 17%;
     height: 27%;
   }
   button.btn.btn-primary.in {
     top: 50%;
-    left: 11%;
+    left: 9%;
     width: 23%;
     height: 35%;
   }
   button.btn.btn-primary.jung {
     top: 70%;
-    left: 55%;
+    left: 57%;
     width: 15%;
     height: 30%;
   }
