@@ -13,23 +13,27 @@ class HomeController < ApplicationController
     get_info1 = JSON.parse(str_uri1)["busStationArrivalInfo"]["arrivalList"]
     d_bus24 = get_info1.find{|x| x["routeName"] == "24"}
     d_bus720_3 = get_info1.find{|x| x["routeDestName"] == "단국대차고지"}
-    @dental_24_1 = d_bus24["predictTime1"]
-    @dental_24_2 = d_bus24["predictTime2"]
-    @dental_720_3_1 = d_bus720_3["predictTime1"]
-    @dental_720_3_2 = d_bus720_3["predictTime2"]
+    @dental_24_1 = d_bus24["predictTime1"]+"분"
+    @dental_24_2 = d_bus24["predictTime2"]+"분"
+    @dental_720_3_1 = d_bus720_3["predictTime1"]+"분"
+    @dental_720_3_2 = d_bus720_3["predictTime2"]+"분"
     
     #셔틀버스
     now=Time.now
-    if(now.hour+9 >= 8 && now.hour+9<=10)
+    if(now+32400.saturday? || now+32400.sunday?)
+      @dental_shuttle = "운행종료"
+    elsif(now.hour+9 >= 8 && now.hour+9<=10)
       @dental_shuttle = "상시운행"
+    else
+      @dental_shuttle = "운행종료"
     end
     ifend1 = true
     @@shuttles.each do |s|
       if(s.dental!=nil && now.hour+9==s.dental.hour && now.min<s.dental.min && ifend1)
-        @dental_shuttle = s.dental.min-now.min
+        @dental_shuttle = s.dental.min-now.min+"분"
         ifend1 = false
       elsif(s.dental!=nil && now.hour+10==s.dental.hour && ifend1)
-        @dental_shuttle = 60-now.min+s.dental.min
+        @dental_shuttle = 60-now.min+s.dental.min+"분"
         ifend1 = false
       end
     end
