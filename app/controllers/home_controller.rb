@@ -32,7 +32,7 @@ class HomeController < ApplicationController
     if(now.hour<bus24_first_h || (now.hour==bus24_first_h && now.min<bus24_first_m) || (now.hour==bus24_last_h && now.min>bus24_last_m))
       @dental_24_1 = "운행종료"
       @dental_24_2 = "운행종료"
-    elsif(now.hour==bus24_last_h && now.min+d_bus24["predictTime1"]==bus24_last_m)
+    elsif(now.hour==bus24_last_h && now.min+d_bus24["predictTime1"].to_i==bus24_last_m)
       @dental_24_2 = "운행종료"
     elsif(@dental_24_1 == "분")
       @dental_24_1 = "대기중"
@@ -45,7 +45,7 @@ class HomeController < ApplicationController
     if(now.hour<bus720_3_first_h || (now.hour==bus720_3_first_h && now.min<bus720_3_first_m) || now.hour>bus720_3_last_h || (now.hour==bus720_3_last_h && now.min>bus720_3_last_m))
       @dental_720_3_1 = "운행종료"
       @dental_720_3_2 = "운행종료"
-    elsif(now.hour==bus720_3_last_h && now.min+d_bus720_3["predictTime1"]==bus720_3_last_m)
+    elsif(now.hour==bus720_3_last_h && now.min+d_bus720_3["predictTime1"].to_i==bus720_3_last_m)
       @dental_720_3_2 = "운행종료"
     elsif(@dental_24_1 == "분")
       @dental_720_3_1 = "대기중"
@@ -98,7 +98,7 @@ class HomeController < ApplicationController
     if(now.hour<bus24_first_h || (now.hour==bus24_first_h && now.min<bus24_first_m) || (now.hour==bus24_last_h && now.min>bus24_last_m))
       @gomsang_24_1 = "운행종료"
       @gomsang_24_2 = "운행종료"
-    elsif(now.hour==bus24_last_h && now.min+g_bus24["predictTime1"]==bus24_last_m)
+    elsif(now.hour==bus24_last_h && now.min+g_bus24["predictTime1"].to_i==bus24_last_m)
       @gomsang_24_2 = "운행종료"
     elsif(@gomsang_24_1 == "분")
       @gomsang_24_1 = "대기중"
@@ -111,7 +111,7 @@ class HomeController < ApplicationController
     if(now.hour<bus720_3_first_h || (now.hour==bus720_3_first_h && now.min<bus720_3_first_m) || now.hour>bus720_3_last_h || (now.hour==bus720_3_last_h && now.min>bus720_3_last_m))
       @gomsang_720_3_1 = "운행종료"
       @gomsang_720_3_2 = "운행종료"
-    elsif(now.hour==bus720_3_last_h && now.min+g_bus720_3["predictTime1"]==bus720_3_last_m)
+    elsif(now.hour==bus720_3_last_h && now.min+g_bus720_3["predictTime1"].to_i==bus720_3_last_m)
       @gomsang_720_3_2 = "운행종료"
     elsif(@gomsang_720_3_1 == "분")
       @gomsang_720_3_1 = "대기중"
@@ -164,7 +164,7 @@ class HomeController < ApplicationController
     if(now.hour<bus24_first_h || (now.hour==bus24_first_h && now.min<bus24_first_m) || (now.hour==bus24_last_h && now.min>bus24_last_m))
       @inmun_24_1 = "운행종료"
       @inmun_24_2 = "운행종료"
-    elsif(now.hour==bus24_last_h && now.min+i_bus24["predictTime1"]==bus24_last_m)
+    elsif(now.hour==bus24_last_h && now.min+i_bus24["predictTime1"].to_i==bus24_last_m)
       @inmun_24_2 = "운행종료"
     elsif(@inmun_24_1 == "분")
       @inmun_24_1 = "대기중"
@@ -177,7 +177,7 @@ class HomeController < ApplicationController
     if(now.hour<bus720_3_first_h || (now.hour==bus720_3_first_h && now.min<bus720_3_first_m) || now.hour>bus720_3_last_h || (now.hour==bus720_3_last_h && now.min>bus720_3_last_m))
       @inmun_720_3_1 = "운행종료"
       @inmun_720_3_2 = "운행종료"
-    elsif(now.hour==bus720_3_last_h && now.min+i_bus720_3["predictTime1"]==bus720_3_last_m)
+    elsif(now.hour==bus720_3_last_h && now.min+i_bus720_3["predictTime1"].to_i==bus720_3_last_m)
       @inmun_720_3_2 = "운행종료"
     elsif(@inmun_720_3_1 == "분")
       @inmun_720_3_1 = "대기중"
@@ -233,7 +233,7 @@ class HomeController < ApplicationController
     if(now.hour<bus24_first_h || (now.hour==bus24_first_h && now.min<bus24_first_m) || (now.hour==bus24_last_h && now.min>bus24_last_m))
       @jungmun_24_1 = "운행종료"
       @jungmun_24_2 = "운행종료"
-    elsif(now.hour==bus24_last_h && now.min+j_bus24["predictTime1"]==bus24_last_m)
+    elsif(now.hour==bus24_last_h && now.min+j_bus24["predictTime1"].to_i==bus24_last_m)
       @jungmun_24_2 = "운행종료"
     elsif(@jungmun_24_1 == "분")
       @jungmun_24_1 = "대기중"
@@ -246,7 +246,7 @@ class HomeController < ApplicationController
     if(now.hour<bus720_3_first_h || (now.hour==bus720_3_first_h && now.min<bus720_3_first_m) || now.hour>bus720_3_last_h || (now.hour==bus720_3_last_h && now.min>bus720_3_last_m))
       @jungmun_720_3_1 = "운행종료"
       @jungmun_720_3_2 = "운행종료"
-    elsif(now.hour==bus720_3_last_h && now.min+j_bus720_3["predictTime1"]==bus720_3_last_m)
+    elsif(now.hour==bus720_3_last_h && now.min+j_bus720_3["predictTime1"].to_i==bus720_3_last_m)
       @jungmun_720_3_2 = "운행종료"
     elsif(@jungmun_720_3_1 == "분")
       @jungmun_720_3_1 = "대기중"
