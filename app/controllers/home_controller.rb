@@ -21,10 +21,10 @@ class HomeController < ApplicationController
     bus720_3_first_m = d_bus720_3["firstTime"][3..4].to_i
     bus720_3_last_h = d_bus720_3["lastTime"][0..1].to_i
     bus720_3_last_m = d_bus720_3["lastTime"][3..4].to_i
-    @dental_24_1 = d_bus24["predictTime1"]+"분"
-    @dental_24_2 = d_bus24["predictTime2"]+"분"
-    @dental_720_3_1 = d_bus720_3["predictTime1"]+"분"
-    @dental_720_3_2 = d_bus720_3["predictTime2"]+"분"
+    @dental_24_1 = d_bus24["predictTime1"].to_s+"분"
+    @dental_24_2 = d_bus24["predictTime2"].to_s+"분"
+    @dental_720_3_1 = d_bus720_3["predictTime1"].to_s+"분"
+    @dental_720_3_2 = d_bus720_3["predictTime2"].to_s+"분"
     
     now=Time.now+32400
     
@@ -36,6 +36,7 @@ class HomeController < ApplicationController
       @dental_24_2 = "운행종료"
     elsif(@dental_24_1 == "분")
       @dental_24_1 = "대기중"
+      @dental_24_2 = "대기중"
     elsif(@dental_24_2 == "분")
       @dental_24_2 = "대기중"
     end
@@ -48,6 +49,7 @@ class HomeController < ApplicationController
       @dental_720_3_2 = "운행종료"
     elsif(@dental_24_1 == "분")
       @dental_720_3_1 = "대기중"
+      @dental_720_3_2 = "대기중"
     elsif(@dental_24_2 == "분")
       @dental_720_3_2 = "대기중"
     end
@@ -55,16 +57,16 @@ class HomeController < ApplicationController
     #셔틀버스
     if(now.saturday? || now.sunday? || now.hour<8 ||now.hour>22 || (now.hour==22 && now.min>38))
       @dental_shuttle = "운행종료"
-    elsif(now.hour >= 8 && now.hour<=10)
-      @dental_shuttle = "상시운행"
     end
     ifend1 = true
     @@shuttles.each do |s|
-      if(s.dental!=nil && now.hour==s.dental.hour && now.min<s.dental.min && ifend1)
-        @dental_shuttle = s.dental.min-now.min+"분"
+      if(now.hour >= 8 && now.hour<=10)
+        @dental_shuttle = "상시운행"
+      elsif(s.dental!=nil && now.hour==s.dental.hour && now.min<s.dental.min && ifend1)
+        @dental_shuttle = (s.dental.min-now.min).to_s+"분"
         ifend1 = false
       elsif(s.dental!=nil && now.hour+1==s.dental.hour && ifend1)
-        @dental_shuttle = 60-now.min+s.dental.min+"분"
+        @dental_shuttle = (60-now.min+s.dental.min).to_s+"분"
         ifend1 = false
       end
     end
@@ -85,10 +87,10 @@ class HomeController < ApplicationController
     bus720_3_first_m = g_bus720_3["firstTime"][3..4].to_i
     bus720_3_last_h = g_bus720_3["lastTime"][0..1].to_i
     bus720_3_last_m = g_bus720_3["lastTime"][3..4].to_i
-    @gomsang_24_1 = g_bus24["predictTime1"]+"분"
-    @gomsang_24_2 = g_bus24["predictTime2"]+"분"
-    @gomsang_720_3_1 = g_bus720_3["predictTime1"]+"분"
-    @gomsang_720_3_2 = g_bus720_3["predictTime2"]+"분"
+    @gomsang_24_1 = g_bus24["predictTime1"].to_s+"분"
+    @gomsang_24_2 = g_bus24["predictTime2"].to_s+"분"
+    @gomsang_720_3_1 = g_bus720_3["predictTime1"].to_s+"분"
+    @gomsang_720_3_2 = g_bus720_3["predictTime2"].to_s+"분"
     
     now=Time.now+32400
     
@@ -100,6 +102,7 @@ class HomeController < ApplicationController
       @gomsang_24_2 = "운행종료"
     elsif(@gomsang_24_1 == "분")
       @gomsang_24_1 = "대기중"
+      @gomsang_24_2 = "대기중"
     elsif(@gomsang_24_2 == "분")
       @gomsang_24_2 = "대기중"
     end
@@ -110,25 +113,26 @@ class HomeController < ApplicationController
       @gomsang_720_3_2 = "운행종료"
     elsif(now.hour==bus720_3_last_h && now.min+g_bus720_3["predictTime1"]==bus720_3_last_m)
       @gomsang_720_3_2 = "운행종료"
-    elsif(@gomsang_24_1 == "분")
+    elsif(@gomsang_720_3_1 == "분")
       @gomsang_720_3_1 = "대기중"
-    elsif(@gomsang_24_2 == "분")
+      @gomsang_720_3_2 = "대기중"
+    elsif(@gomsang_720_3_2 == "분")
       @gomsang_720_3_2 = "대기중"
     end
     
     #셔틀버스
     if(now.saturday? || now.sunday? || now.hour<8 ||now.hour>22 || (now.hour==22 && now.min>38))
       @gomsang_shuttle = "운행종료"
-    elsif(now.hour >= 8 && now.hour<=10)
-      @gomsang_shuttle = "상시운행"
     end
     ifend2 = true
     @@shuttles.each do |s|
-      if(s.gomsang!=nil && now.hour==s.gomsang.hour && now.min<s.gomsang.min && ifend2)
-        @gomsang_shuttle = s.gomsang.min-now.min+"분"
+      if(now.hour >= 8 && now.hour<=10)
+        @gomsang_shuttle = "상시운행"
+      elsif(s.gomsang!=nil && now.hour==s.gomsang.hour && now.min<s.gomsang.min && ifend2)
+        @gomsang_shuttle = (s.gomsang.min-now.min).to_s+"분"
         ifend2 = false
       elsif(s.gomsang!=nil && now.hour+1==s.gomsang.hour && ifend2)
-        @gomsang_shuttle = 60-now.min+s.gomsang.min+"분"
+        @gomsang_shuttle = (60-now.min+s.gomsang.min).to_s+"분"
         ifend2 = false
       end
     end
@@ -149,10 +153,10 @@ class HomeController < ApplicationController
     bus720_3_first_m = i_bus720_3["firstTime"][3..4].to_i
     bus720_3_last_h = i_bus720_3["lastTime"][0..1].to_i
     bus720_3_last_m = i_bus720_3["lastTime"][3..4].to_i
-    @inmun_24_1 = i_bus24["predictTime1"]
-    @inmun_24_2 = i_bus24["predictTime2"]
-    @inmun_720_3_1 = i_bus720_3["predictTime1"]
-    @inmun_720_3_2 = i_bus720_3["predictTime2"]
+    @inmun_24_1 = i_bus24["predictTime1"].to_s+"분"
+    @inmun_24_2 = i_bus24["predictTime2"].to_s+"분"
+    @inmun_720_3_1 = i_bus720_3["predictTime1"].to_s+"분"
+    @inmun_720_3_2 = i_bus720_3["predictTime2"].to_s+"분"
     
     now=Time.now+32400
     
@@ -164,6 +168,7 @@ class HomeController < ApplicationController
       @inmun_24_2 = "운행종료"
     elsif(@inmun_24_1 == "분")
       @inmun_24_1 = "대기중"
+      @inmun_24_2 = "대기중"
     elsif(@inmun_24_2 == "분")
       @inmun_24_2 = "대기중"
     end
@@ -176,6 +181,7 @@ class HomeController < ApplicationController
       @inmun_720_3_2 = "운행종료"
     elsif(@inmun_720_3_1 == "분")
       @inmun_720_3_1 = "대기중"
+      @inmun_720_3_2 = "대기중"
     elsif(@inmun_720_3_2 == "분")
       @inmun_720_3_2 = "대기중"
     end
@@ -183,16 +189,16 @@ class HomeController < ApplicationController
     #셔틀버스
     if(now.saturday? || now.sunday? || now.hour<8 ||now.hour>22 || (now.hour==22 && now.min>38))
       @inmun_shuttle = "운행종료"
-    elsif(now.hour >= 8 && now.hour<=10)
-      @inmun_shuttle = "상시운행"
     end
     ifend3 = true
     @@shuttles.each do |s|
-      if(s.inmun!=nil && now.hour==s.inmun.hour && now.min<s.inmun.min && ifend3)
-        @inmun_shuttle = s.inmun.min-now.min
+      if(now.hour >= 8 && now.hour<=10)
+        @inmun_shuttle = "상시운행"
+      elsif(s.inmun!=nil && now.hour==s.inmun.hour && now.min<s.inmun.min && ifend3)
+        @inmun_shuttle = (s.inmun.min-now.min).to_s+"분"
         ifend3 = false
       elsif(s.inmun!=nil && now.hour+1==s.inmun.hour && ifend3)
-        @inmun_shuttle = 60-now.min+s.inmun.min
+        @inmun_shuttle = (60-now.min+s.inmun.min).to_s+"분"
         ifend3 = false
       end
     end
@@ -216,10 +222,10 @@ class HomeController < ApplicationController
     bus720_3_first_m = j_bus720_3["firstTime"][3..4].to_i
     bus720_3_last_h = j_bus720_3["lastTime"][0..1].to_i
     bus720_3_last_m = j_bus720_3["lastTime"][3..4].to_i
-    @jungmun_24_1 = j_bus24["predictTime1"]
-    @jungmun_24_2 = j_bus24["predictTime2"]
-    @jungmun_720_3_1 = j_bus720_3["predictTime1"]
-    @jungmun_720_3_2 = j_bus720_3["predictTime2"]
+    @jungmun_24_1 = j_bus24["predictTime1"].to_s+"분"
+    @jungmun_24_2 = j_bus24["predictTime2"].to_s+"분"
+    @jungmun_720_3_1 = j_bus720_3["predictTime1"].to_s+"분"
+    @jungmun_720_3_2 = j_bus720_3["predictTime2"].to_s+"분"
     
     now=Time.now+32400
     
@@ -231,6 +237,7 @@ class HomeController < ApplicationController
       @jungmun_24_2 = "운행종료"
     elsif(@jungmun_24_1 == "분")
       @jungmun_24_1 = "대기중"
+      @jungmun_24_2 = "대기중"
     elsif(@jungmun_24_2 == "분")
       @jungmun_24_2 = "대기중"
     end
@@ -243,6 +250,7 @@ class HomeController < ApplicationController
       @jungmun_720_3_2 = "운행종료"
     elsif(@jungmun_720_3_1 == "분")
       @jungmun_720_3_1 = "대기중"
+      @jungmun_720_3_2 = "대기중"
     elsif(@jungmun_720_3_2 == "분")
       @jungmun_720_3_2 = "대기중"
     end
@@ -250,16 +258,16 @@ class HomeController < ApplicationController
     #셔틀버스
     if(now.saturday? || now.sunday? || now.hour<8 ||now.hour>22 || (now.hour==22 && now.min>38))
       @jungmun_shuttle = "운행종료"
-    elsif(now.hour >= 8 && now.hour<=10)
-      @jungmun_shuttle = "상시운행"
     end
     ifend4 = true
     @@shuttles.each do |s|
-      if(s.jungmun!=nil && now.hour==s.jungmun.hour && now.min<s.jungmun.min && ifend4)
-        @jungmun_shuttle = s.jungmun.min-now.min
+      if(now.hour >= 8 && now.hour<=10)
+        @jungmun_shuttle = "상시운행"
+      elsif(s.jungmun!=nil && now.hour==s.jungmun.hour && now.min<s.jungmun.min && ifend4)
+        @jungmun_shuttle = (s.jungmun.min-now.min).to_s+"분"
         ifend3 = false
       elsif(s.jungmun!=nil && now.hour+1==s.jungmun.hour && ifend3)
-        @jungmun_shuttle = 60-now.min+s.jungmun.min
+        @jungmun_shuttle = (60-now.min+s.jungmun.min).to_s+"분"
         ifend3 = false
       end
     end
@@ -268,5 +276,5 @@ class HomeController < ApplicationController
   def shuttle
     @shuttle = @@shuttles
   end
-  
+
 end
