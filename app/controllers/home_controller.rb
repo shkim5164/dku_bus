@@ -12,15 +12,10 @@ class HomeController < ApplicationController
     uri1 = open(gbis + "?stationId=228001737")
     str_uri1 = uri1.read
     get_info1 = JSON.parse(str_uri1)["busStationArrivalInfo"]["arrivalList"]
-<<<<<<< HEAD
-    @dental_24 = get_info1[5]["predictTime1"]
-    @dental_720_3 = get_info1[0]["predictTime1"]
-=======
     d_bus24 = get_info1.find{|x| x["routeName"] == "24"}
     d_bus720_3 = get_info1.find{|x| x["routeDestName"] == "단국대차고지"}
     @dental_24 = d_bus24["predictTime1"]
     @dental_720_3 = d_bus720_3["predictTime1"]
->>>>>>> 529f66e6c2d80a10e9f0690e8c47b068130a9ae0
     
     #단국대 곰상 정류장
     uri2 = open(gbis + "?stationId=228001980")
@@ -44,8 +39,9 @@ class HomeController < ApplicationController
     uri4 = open(gbis + "?stationId=228001978")
     str_uri4 = uri4.read
     get_info4 = JSON.parse(str_uri4)["busStationArrivalInfo"]["arrivalList"]
+    j_bus720_3 = get_info4.find{|x| x["routeDestName"] == "서동탄역파크자이2차"}
     @jungmun_24 = @inmun_24
-    @jungmun_720_3 = get_info3[0]["predictTime1"]
+    @jungmun_720_3 = get_info4["predictTime1"]
     
     #셔틀버스
     now=Time.now
