@@ -266,7 +266,7 @@ class HomeController < ApplicationController
       elsif(s.jungmun!=nil && now.hour==s.jungmun.hour && now.min<s.jungmun.min && ifend4)
         @jungmun_shuttle = (s.jungmun.min-now.min).to_s+"분"
         ifend3 = false
-      elsif(s.jungmun!=nil && now.hour+1==s.jungmun.hour && ifend3)
+      elsif(s.jungmun!=nil && now.hour+1==s.jungmun.hour && ifend4)
         @jungmun_shuttle = (60-now.min+s.jungmun.min).to_s+"분"
         ifend3 = false
       end
