@@ -78,7 +78,7 @@ class HomeController < ApplicationController
     str_uri2 = uri2.read
     get_info2 = JSON.parse(str_uri2)["busStationArrivalInfo"]["arrivalList"]
     g_bus24 = get_info2.find{|x| x["routeName"] == "24"}
-    g_bus720_3 = get_info2.find{|x| x["routeDestName"] == "서동탄역파크자이2차"}
+    g_bus720_3 = get_info2.find{|x| x["routeDestName"] == "파크자이2차"}
     bus24_first_h = g_bus24["firstTime"][0..1].to_i
     bus24_first_m = g_bus24["firstTime"][3..4].to_i
     bus24_last_h = g_bus24["lastTime"][0..1].to_i
@@ -144,7 +144,7 @@ class HomeController < ApplicationController
     str_uri3 = uri3.read
     get_info3 = JSON.parse(str_uri3)["busStationArrivalInfo"]["arrivalList"]
     i_bus24 = get_info3.find{|x| x["routeName"] == "24"}
-    i_bus720_3 = get_info3.find{|x| x["routeDestName"] == "서동탄역파크자이2차"}
+    i_bus720_3 = get_info3.find{|x| x["routeDestName"] == "파크자이2차"}
     bus24_first_h = i_bus24["firstTime"][0..1].to_i
     bus24_first_m = i_bus24["firstTime"][3..4].to_i
     bus24_last_h = i_bus24["lastTime"][0..1].to_i
@@ -213,7 +213,7 @@ class HomeController < ApplicationController
     str_uri4 = uri4.read
     get_info4 = JSON.parse(str_uri4)["busStationArrivalInfo"]["arrivalList"]
     j_bus24 = get_info3.find{|x| x["routeName"] == "24"} #정문은 인문24 받아옴
-    j_bus720_3 = get_info4.find{|x| x["routeDestName"] == "서동탄역파크자이2차"}
+    j_bus720_3 = get_info4.find{|x| x["routeDestName"] == "파크자이2차"}
     bus24_first_h = j_bus24["firstTime"][0..1].to_i
     bus24_first_m = j_bus24["firstTime"][3..4].to_i
     bus24_last_h = j_bus24["lastTime"][0..1].to_i
